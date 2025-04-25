@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="shoe_shop.Login" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" runat="server" contentplaceholderid="ContentPlaceHolder3">
+<asp:Content ID="Content4" runat="server" ContentPlaceHolderID="ContentPlaceHolder3">
     <section class="feeter">
         <section class="section-padding" id="register">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-12 mx-auto">
-                    <div class="booking-form">
-                        <h2 class="text-center mb-lg-3 mb-2">Register With Us!!</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 mx-auto">
+                        <div class="booking-form">
+                            <h2 class="text-center mb-lg-3 mb-2">Register With Us!!</h2>
 
                             <div class="row">
                                 <div class="form-control col-lg-6 col-6">
@@ -30,7 +31,7 @@
                                 </div>
                                 <br />
 
-                                
+
                                 <div class="form-control col-lg-6">
                                     <div class="d-flex gap-3">
                                         <asp:TextBox ID="txtAdddress" CssClass="form-control w-50" placeholder="Enter Address" runat="server"></asp:TextBox>
@@ -47,9 +48,27 @@
                                     <div class="d-flex gap-3">
                                         <asp:DropDownList ID="ddCity" class="form-control w-50" runat="server">
                                             <asp:ListItem>--Select City--</asp:ListItem>
-                                            <asp:ListItem>City 1</asp:ListItem>
-                                            <asp:ListItem>City 2</asp:ListItem>
-                                            <asp:ListItem>City 3</asp:ListItem>
+                                            <asp:ListItem>Rajok</asp:ListItem>
+                                            <asp:ListItem>Jamnagar</asp:ListItem>
+                                            <asp:ListItem>Dwarka</asp:ListItem>
+                                            <asp:ListItem>Amreli</asp:ListItem>
+                                            <asp:ListItem>Bhanvanagar</asp:ListItem>
+                                            <asp:ListItem>Surat</asp:ListItem>
+                                            <asp:ListItem>Junagadh</asp:ListItem>
+                                            <asp:ListItem>Surendranagar</asp:ListItem>
+                                            <asp:ListItem>Morbi</asp:ListItem>
+                                            <asp:ListItem>Dang</asp:ListItem>
+                                            <asp:ListItem>Botad</asp:ListItem>
+                                            <asp:ListItem>Amadavad</asp:ListItem>
+                                            <asp:ListItem>Valsad</asp:ListItem>
+                                            <asp:ListItem>Navasari</asp:ListItem>
+                                            <asp:ListItem>Kutch</asp:ListItem>
+                                            <asp:ListItem>Vapi</asp:ListItem>
+                                            <asp:ListItem>Mahesana</asp:ListItem>
+                                            <asp:ListItem>Porbandar</asp:ListItem>
+                                            <asp:ListItem>Godhara</asp:ListItem>
+                                            <asp:ListItem>Chhota Udaipur</asp:ListItem>
+                                            <asp:ListItem>Gir Somnath</asp:ListItem>
                                         </asp:DropDownList>
 
                                         <asp:FileUpload ID="UploadImage" class="form-control w-50" runat="server" />
@@ -63,29 +82,27 @@
                                 </div>
 
                                 <div class="btn  ms-2 col-lg-12 col-md-4 col-6 mx-auto">
-                                  
-                                    <asp:Button ID="btnRegister" class="form-control" runat="server" Text="Submit" OnClick="btnRegister_Click"  />
+
+                                    <asp:Button ID="btnRegister" class="form-control" runat="server" Text="Submit" OnClick="btnRegister_Click" />
                                     <br />
-                                    
+
                                 </div>
                                 <div class="btn  ms-2 col-lg-12 col-md-4 col-6 mx-auto">
-                                   
-                                    Already have Account ?? :<a class="text-danger" href="Login.aspx">Login</a>   
+                                    Already have Account ?? :<a class="text-danger" href="Login.aspx">Login</a>
                                     <br />
-                                    
+
                                     <div class="btn  ms-2 col-lg-12 col-md-4 col-6 mx-auto">
-                                   
-                                    Admin Login  :<a class="text-danger" href="admin\AdminLogin.aspx">Login</a>   
-                                    <br />
+                                        Admin Login  :<a class="text-danger" href="admin\AdminLogin.aspx">Login</a>
+                                        <br />
+                                    </div>
+
                                 </div>
 
                             </div>
-
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    
+
 
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
@@ -93,35 +110,36 @@
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
                 <!-- Bootstrap JS -->
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    </body>
 
 </html>
-            </asp:Content>
+</asp:Content>
 
-<asp:Content ID="Content5" runat="server" contentplaceholderid="ContentPlaceHolder1">
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1"><title>Amber Shoes</title>
+<asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Amber Shoes</title>
 
-                    <!-- Bootstrap CSS -->
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-                    <link rel="stylesheet" href="style.css">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
 
-                    <!-- Custom CSS for Overlay Text -->
-                    <style>
+        <!-- Custom CSS for Overlay Text -->
+        <style>
                     </style>
-                </head>
-                <body>
+    </head>
+    <body>
 
-                    <!-- Sticky Navbar -->
-                    <%--<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top shadow">
+        <!-- Sticky Navbar -->
+        <%--<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top shadow">
                         <div class="container-fluid px-4">
                             <!-- Toggle button for mobile -->
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

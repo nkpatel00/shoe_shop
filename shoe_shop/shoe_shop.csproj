@@ -67,14 +67,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Address.aspx" />
     <Content Include="admin\Addnewadmin.aspx" />
     <Content Include="admin\AddProduct.aspx" />
     <Content Include="admin\Admin.aspx" />
+    <Content Include="admin\AdminDashboard.aspx" />
     <Content Include="admin\AdminLogin.aspx" />
     <Content Include="admin\Category.aspx" />
+    <Content Include="admin\ManageOrders.aspx" />
     <Content Include="admin\ManageUser.aspx" />
-    <Content Include="admin\Product.aspx" />
     <Content Include="admin\show_product.aspx" />
+    <Content Include="Baby.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="img\Default.png" />
+    <Content Include="Orders.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Rain.aspx" />
+    <Content Include="show_product.aspx" />
     <Content Include="snow.aspx" />
     <Content Include="userprofile.aspx" />
     <Content Include="App_Data\shoes_db.mdf" />
@@ -100,17 +109,24 @@
     <Content Include="images\weekendbootinsage.jpg" />
     <Content Include="index.html" />
     <Content Include="Login.aspx" />
-    <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="rain.html" />
     <Content Include="shop_all.html" />
     <Content Include="snow.html" />
     <Content Include="style.css" />
     <Content Include="Web.config" />
+    <Content Include="Weekend.aspx" />
     <Content Include="weekend.html" />
     <Content Include="winter_sale.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.aspx.cs">
+      <DependentUpon>Address.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Address.aspx.designer.cs">
+      <DependentUpon>Address.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Addnewadmin.aspx.cs">
       <DependentUpon>Addnewadmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +148,13 @@
     <Compile Include="admin\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +171,13 @@
     <Compile Include="admin\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\ManageOrders.aspx.cs">
+      <DependentUpon>ManageOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ManageOrders.aspx.designer.cs">
+      <DependentUpon>ManageOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\ManageUser.aspx.cs">
       <DependentUpon>ManageUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,15 +185,55 @@
     <Compile Include="admin\ManageUser.aspx.designer.cs">
       <DependentUpon>ManageUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\Product.aspx.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\product_ctrl.cs" />
     <Compile Include="admin\show_product.aspx.cs">
       <DependentUpon>show_product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\show_product.aspx.designer.cs">
+      <DependentUpon>show_product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Baby.aspx.cs">
+      <DependentUpon>Baby.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Baby.aspx.designer.cs">
+      <DependentUpon>Baby.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Class.cs" />
+    <Compile Include="Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rain.aspx.cs">
+      <DependentUpon>Rain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rain.aspx.designer.cs">
+      <DependentUpon>Rain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="show_product.aspx.cs">
+      <DependentUpon>show_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="show_product.aspx.designer.cs">
       <DependentUpon>show_product.aspx</DependentUpon>
     </Compile>
     <Compile Include="snow.aspx.cs">
@@ -195,13 +265,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Profile.aspx.designer.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +281,13 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Weekend.aspx.cs">
+      <DependentUpon>Weekend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Weekend.aspx.designer.cs">
+      <DependentUpon>Weekend.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -230,7 +300,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="img\" />
+    <Folder Include="images\Product_Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

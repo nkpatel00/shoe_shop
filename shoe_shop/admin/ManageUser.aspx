@@ -71,9 +71,27 @@
                 </asp:RadioButtonList>
                 <asp:DropDownList ID="ddCity" class="form-control" runat="server">
                     <asp:ListItem>--Select City--</asp:ListItem>
-                    <asp:ListItem>City 1</asp:ListItem>
-                    <asp:ListItem>City 2</asp:ListItem>
-                    <asp:ListItem>City 3</asp:ListItem>
+                    <asp:ListItem>Rajok</asp:ListItem>
+                    <asp:ListItem>Jamnagar</asp:ListItem>
+                    <asp:ListItem>Dwarka</asp:ListItem>
+                    <asp:ListItem>Amreli</asp:ListItem>
+                    <asp:ListItem>Bhanvanagar</asp:ListItem>
+                    <asp:ListItem>Surat</asp:ListItem>
+                    <asp:ListItem>Junagadh</asp:ListItem>
+                    <asp:ListItem>Surendranagar</asp:ListItem>
+                    <asp:ListItem>Morbi</asp:ListItem>
+                    <asp:ListItem>Dang</asp:ListItem>
+                    <asp:ListItem>Botad</asp:ListItem>
+                    <asp:ListItem>Amadavad</asp:ListItem>
+                    <asp:ListItem>Valsad</asp:ListItem>
+                    <asp:ListItem>Navasari</asp:ListItem>
+                    <asp:ListItem>Kutch</asp:ListItem>
+                    <asp:ListItem>Vapi</asp:ListItem>
+                    <asp:ListItem>Mahesana</asp:ListItem>
+                    <asp:ListItem>Porbandar</asp:ListItem>
+                    <asp:ListItem>Godhara</asp:ListItem>
+                    <asp:ListItem>Chhota Udaipur</asp:ListItem>
+                    <asp:ListItem>Gir Somnath</asp:ListItem>
                 </asp:DropDownList>
                 <asp:FileUpload ID="UploadImage" class="form-control" runat="server" />
                 <asp:TextBox ID="password" CssClass="form-control" placeholder="Enter Password" required runat="server"></asp:TextBox>
@@ -84,6 +102,76 @@
                 <a class="btn btn-secondary w-100" href="Admin.aspx">Go Back To Admin Page</a>
             </div>
         </section>
+
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <Columns>
+                <asp:TemplateField HeaderText="Id">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Name">
+                    <ItemTemplate>
+                        <asp:Label ID="Label10" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Email">
+                    <ItemTemplate>
+                        <asp:Label ID="Label9" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Mobile">
+                    <ItemTemplate>
+                        <asp:Label ID="Label8" runat="server" Text='<%# Eval("Mobile") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Date">
+                    <ItemTemplate>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Address">
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Gender">
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="City">
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("City") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Image">
+                    <ItemTemplate>
+                        <asp:Image ID="Image1" runat="server" Height="100px" Width="100px" ImageUrl='<%# ResolveUrl(Eval("Image").ToString()) %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Password">
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Password") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="RePassword">
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("RePassword") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Edit">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_edt">Edit</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Delete">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_dlt">Delete</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

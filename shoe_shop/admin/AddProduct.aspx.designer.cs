@@ -69,6 +69,15 @@ namespace shoe_shop.admin
         protected global::System.Web.UI.WebControls.FileUpload fileUploadImage;
 
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+
+        /// <summary>
         /// btnAddProduct control.
         /// </summary>
         /// <remarks>

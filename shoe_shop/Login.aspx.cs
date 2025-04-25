@@ -14,7 +14,12 @@ namespace shoe_shop
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
+            if (Session["user_id"] != null)
+            {
+                Response.Redirect("Home.aspx");
+            }
         }
+
 
         void getcon()
         {
@@ -26,26 +31,48 @@ namespace shoe_shop
         {
             getcon();
 
-            string query = "SELECT Name FROM user_tbl WHERE Email = @Email AND Password = @Password";
-            cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Email", txtmailusr.Text.Trim());
-            cmd.Parameters.AddWithValue("@Password", txtpassusr.Text.Trim());
+            string query = @"SELECT Id, Name, Mobile, Date, Address, Gender, City, Image 
+                     FROM user_tbl 
+                     WHERE Email = @Email AND Password = @Password";
 
-            object result = cmd.ExecuteScalar();
-
-            if (result != null) 
+            using (cmd = new SqlCommand(query, con))
             {
-                Session["user_email"] = txtmailusr.Text.Trim();
-                Session["user_name"] = result.ToString(); // Store username in session
+                cmd.CommandType = CommandType.Text;
 
-                Response.Redirect("Home.aspx"); // Redirect to home page
-            }
-            else
-            {
-                lblMessage.Text = "Invalid Email or Password.";
+                SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar, 100);
+                SqlParameter passParam = new SqlParameter("@Password", SqlDbType.NVarChar, 100);
+
+                emailParam.Value = txtmailusr.Text.Trim();
+                passParam.Value = txtpassusr.Text.Trim();
+
+                cmd.Parameters.Add(emailParam);
+                cmd.Parameters.Add(passParam);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Session["user_id"] = reader["Id"].ToString();
+                        Session["user_name"] = reader["Name"].ToString();
+                        Session["user_email"] = txtmailusr.Text.Trim();
+                        Session["user_mobile"] = reader["Mobile"].ToString();
+                        Session["user_date"] = reader["Date"].ToString();
+                        Session["user_address"] = reader["Address"].ToString();
+                        Session["user_gender"] = reader["Gender"].ToString();
+                        Session["user_city"] = reader["City"].ToString();
+                        Session["user_image"] = reader["Image"].ToString();
+
+                        Response.Redirect("Home.aspx");
+                    }
+                    else
+                    {
+                        lblMessage.Text = "Invalid Email or Password.";
+                    }
+                }
             }
 
             con.Close();
         }
+
     }
 }

@@ -101,5 +101,10 @@ namespace shoe_shop.admin
         {
 
         }
+
+        protected void btnGoBackToAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin.aspx");
+        }
     }
 }

@@ -24,73 +24,30 @@ namespace shoe_shop.admin
             return con;
         }
 
-        // Insert method using string concatenation
-        public void insert(string productName, int categoryId, string description, decimal price, int stock, string image)
+        // Insert method without AddWithValue
+        public void insert(string productName, int categoryId, string description, string price, string stock, string image)
         {
             con = startCon();
-            try
-            {
-                string query = $"INSERT INTO product_tbl (ProductName, CategoryId, Description, Price, Stock, Image) " +
-                               $"VALUES ('{productName}', {categoryId}, '{description}', {price}, {stock}, '{image}')";
-
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                // Handle exception (you can log or display a message as needed)
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+            cmd = new SqlCommand($"INSERT INTO product_tbl (ProductName, CategoryId, Description, Price, Stock, Image) " +
+                                 $"VALUES ('{productName}', {categoryId}, '{description}', {price}, {stock}, '{image}')", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
-        // Update method using string concatenation
-        public void update(int id, string productName, int categoryId, string description, decimal price, int stock, string image)
+        public void update(int id, string productName, string categoryId, string description, string price, string stock, string image)
         {
-            con = startCon();
-            try
-            {
-                string query = $"UPDATE product_tbl SET ProductName = '{productName}', CategoryId = {categoryId}, " +
-                               $"Description = '{description}', Price = {price}, Stock = {stock}, Image = '{image}' " +
-                               $"WHERE Id = {id}";
-
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                // Handle exception (you can log or display a message as needed)
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+            cmd = new SqlCommand($"UPDATE product_tbl SET ProductName = '{productName}', CategoryId = {categoryId}, " +
+                                 $"Description = '{description}', Price = {price}, Stock = {stock}, Image = '{image}' " +
+                                 $"WHERE Id = {id}", con);
+            cmd.ExecuteNonQuery();
         }
 
-        // Delete method using string concatenation
         public void delete(int id)
         {
             con = startCon();
-            try
-            {
-                string query = $"DELETE FROM product_tbl WHERE Id = {id}";
-
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                // Handle exception (you can log or display a message as needed)
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+            cmd = new SqlCommand($"DELETE FROM product_tbl WHERE Id = {id}", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         // Fetch all products
@@ -99,14 +56,34 @@ namespace shoe_shop.admin
             con = startCon();
             try
             {
-                da = new SqlDataAdapter("SELECT * FROM product_tbl", con);
+                da = new SqlDataAdapter("SELECT p.*, c.CategoryName AS CatName FROM product_tbl p JOIN category_tbl c ON p.CategoryId = c.Id;", con);
+
+                ds = new DataSet();
+                da.Fill(ds);
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
+        }
+
+        // Fetch data for a particular category
+        public DataSet snowProduct()
+        {
+            con = startCon();
+            try
+            {
+                da = new SqlDataAdapter("SELECT p.*, cc.CategoryName AS catName FROM product_tbl p JOIN category_tbl cc ON p.CategoryId = cc.Id WHERE cc.CategoryName = 'snow';", con);
+
                 ds = new DataSet();
                 da.Fill(ds);
                 return ds;
             }
             catch (Exception ex)
             {
-                // Handle exception (you can log or display a message as needed)
                 Console.WriteLine("Error: " + ex.Message);
                 return null;
             }
@@ -118,15 +95,13 @@ namespace shoe_shop.admin
             con = startCon();
             try
             {
-                string query = $"SELECT * FROM product_tbl WHERE Id = {id}";
-                da = new SqlDataAdapter(query, con);
+                da = new SqlDataAdapter($"SELECT * FROM product_tbl WHERE Id = {id}", con);
                 ds = new DataSet();
                 da.Fill(ds);
                 return ds;
             }
             catch (Exception ex)
             {
-                // Handle exception (you can log or display a message as needed)
                 Console.WriteLine("Error: " + ex.Message);
                 return null;
             }
@@ -148,7 +123,6 @@ namespace shoe_shop.admin
             }
             catch (Exception ex)
             {
-                // Handle exception (you can log or display a message as needed)
                 Console.WriteLine("Error: " + ex.Message);
             }
             return dt;

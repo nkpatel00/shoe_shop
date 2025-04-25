@@ -40,5 +40,32 @@ namespace shoe_shop
             cmd = new SqlCommand("UPDATE user_tbl SET Name='" + nm + "', Email='" + email + "', Mobile='" + mbl + "', Date='" + dt + "', Address='" + add + "', Gender='" + gen + "', City='" + ct + "', Image='" + img + "',Password='" + pas + "', RePassword='" + reps + "' WHERE Id='" + id + "'", con);
             cmd.ExecuteNonQuery();
         }
+
+        public void delete(int id)
+        {
+            con = startCon();
+            cmd = new SqlCommand("DELETE FROM user_tbl WHERE Id=" + id, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+
+        public DataSet filldata()
+        {
+            da = new SqlDataAdapter("SELECT * FROM user_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+
+        public DataSet select(int id)
+        {
+            con = startCon();
+            da = new SqlDataAdapter($"SELECT * FROM user_tbl WHERE Id = {id}", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            con.Close();
+            return ds;
+        }
     }
 }

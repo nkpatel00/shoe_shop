@@ -55,11 +55,13 @@
 
             <asp:Button ID="btnaddcat" CssClass="btn btn-primary w-100" runat="server" Text="Submit" OnClick="btnaddcat_Click" />
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <p>
         &nbsp;</p>
+
     <p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="160px" OnRowCommand="GridView1_RowCommand" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="509px">
             <Columns>
@@ -91,6 +93,7 @@
             </Columns>
         </asp:GridView>
     </p>
+
         </form>
 
 </body>

@@ -11,7 +11,15 @@ namespace shoe_shop
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userName = Session["user_name"]?.ToString(); // Assuming user session stores UserId
 
+            if (!string.IsNullOrEmpty(userName))
+            {
+                lblName.Text = userName;
+                return;
+            }
         }
+
+
     }
 }

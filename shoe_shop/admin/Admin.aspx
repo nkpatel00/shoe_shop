@@ -37,10 +37,11 @@
 <body>
     <div class="sidebar">
         <h3>Admin Panel</h3>
-        <a href="#">Dashboard</a>
+        <a href="AdminDashboard.aspx">Dashboard</a>
         <a href="Category.aspx">Categories</a>
         <a href="AddProduct.aspx">Products</a>
-        <a href="../Profile.aspx">Manage Users</a>
+        <a href="ManageOrders.aspx">Orders</a>
+        <a href="ManageUser.aspx">Manage Users</a>
         <a href="Addnewadmin.aspx">Manage Admins</a>
         <a style="color:red" href="AdminLogin.aspx">Sign Out</a>
     </div>

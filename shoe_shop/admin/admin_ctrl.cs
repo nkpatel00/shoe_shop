@@ -41,6 +41,15 @@ namespace shoe_shop.admin
             con.Close();  
         }
 
+        public DataTable getUserById(int id)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM user_tbl WHERE Id = @id", startCon());
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
 
 
